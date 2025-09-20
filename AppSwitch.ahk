@@ -116,20 +116,20 @@ AdjustVolume(amount) {
     ; 创建GUI并设置样式（每次调整都会新建）
     myGui := Gui("+AlwaysOnTop -Caption +ToolWindow")
     myGui.BackColor := "333333"  ; 背景色
-    myGui.Margin := 2              ; 边框厚度
+    myGui.Margin := 2            ; 边框厚度
 
     myGui.SetFont("s20 Bold c3A8BFF", "Noto Sans SC")  ; 字体大小20，蓝色
 
-    ; 添加文本控件（原有部分）
+    ; 添加文本控件
     myGui.Add("Text", "w150 h40 Center", "音量: " displayVolume "%")
 
-    ; 添加进度条控件（新增部分）
+    ; 添加进度条控件
     progressOpts := "w150 h10 c3183e0 Background424242 -Theme Range0-100"
     progressCtrl := myGui.Add("Progress", progressOpts, displayVolume)
 
     myGui.Show("AutoSize Center")
 
-    ; 定义圆角半径（按需调整）
+    ; 定义圆角半径
     r := 10  ; 圆角半径（建议8-15之间）
     WinGetClientPos(, , &w, &h, myGui.Hwnd)
     region := DllCall("CreateRoundRectRgn", "int", 0, "int", 0, "int", w, "int", h, "int", r, "int", r)
@@ -144,3 +144,4 @@ AdjustVolume(amount) {
 Media_Play_Pause() {
     Send "{Media_Play_Pause}"
 }
+
