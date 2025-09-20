@@ -38,10 +38,10 @@ QQPath := "D:\QQ\QQ\QQ.exe"
 ; Alt + V : 剪贴板(uTools)
 ; Alt + X : 最小化当前活动窗口
 
-; 在脚本启动时强制关闭大写锁定状态，防止开机后大写处于锁定状态，默认输入大写
+; 在脚本启动时强制关闭大写锁定状态，防止开机后大写处于锁定状态，导致默认输入大写
 SetCapsLockState "Off"
 
-; 将 Caps Lock 映射为 Ctrl
+; 将 CapsLock键 映射为 Ctrl键
 CapsLock::Ctrl
 
 ; Alt + X : 最小化当前活动窗口，并保存其句柄
@@ -144,4 +144,5 @@ AdjustVolume(amount) {
 Media_Play_Pause() {
     Send "{Media_Play_Pause}"
 }
+
 
