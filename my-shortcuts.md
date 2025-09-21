@@ -3,7 +3,7 @@
 *快速定位*：
 1. [系统自带的快捷键](#1-系统自带的快捷键)  
 2. [自己定义的快捷键](#2-自己定义的快捷键)  
-3. [浏览器-快捷小技巧](#3-浏览器-快捷小技巧)  
+3. [浏览器-快捷小技巧](#3-浏览器快捷键)  
 
 ---
 
@@ -59,10 +59,34 @@
 
 ---
 
-## 3. 浏览器-快捷小技巧
+## 3. 浏览器快捷键
+
+### 3.1 浏览器-快捷小技巧
 Chrome默认是在本页面打开链接，使用以下3种方法可以快速在新的页面打开链接
 1. **鼠标中键**点击链接打开。
-2. **Ctrl键 + 单击**链接打开。
+2. **Ctrl + 单击**链接打开。
 3. **右键**单击链接，选择你喜欢的方式打开。
+
+### 3.2 Chrome插件-快捷键
+
+**Keyboard Shortcuts 插件**：
+
+| 快捷键              | 功能                                                |
+| ---------------- | ------------------------------------------------- |
+| Ctrl + space（空格） | 新建标签页 - New tab                                    |
+| Ctrl + ,（<）      | 后退 - Go back to the previous page                 |
+| Ctrl + .（>）      | 前进 - Go forward to the next page                  |
+| Ctrl + J         | 切换到上一个标签页 - Select previous tab                   |
+| Ctrl + K         | 重载页面 - Reload tab                                 |
+| Ctrl + L         | 切换到下一个标签页 - Select next tab                       |
+| Ctrl + U         | 移动当前标签页到左侧 - Move current tab left                |
+| Ctrl + I         | 复制当前标签页 - Duplicate current tab                   |
+| Ctrl + O         | 移动当前标签页到右侧 - Move current tab right               |
+| Ctrl + P         | 关闭当前标签页 - Close current tab                       |
+| Ctrl + W         | 新建窗口 - New window                                 |
+| Ctrl + D         | 打开下载 - Open Chrome Downloads (chrome://downloads) |
+| Ctrl + E         | 打开扩展 - Open Extensions (chrome://extensions)      |
+
+
 
 
