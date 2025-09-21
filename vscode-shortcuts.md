@@ -1,6 +1,6 @@
 # VS Code快捷键
 
-[ ↓ 我的自定义-vscode插件 ↓ ](#我的自定义---vs-code插件)
+[🚀 我的自定义-vscode插件](#我的自定义---vs-code插件)
 
 ---
 
@@ -10,18 +10,22 @@
 [VSCode-Windows](https://code.visualstudio.com/shortcuts/keyboard-shortcuts-windows.pdf) | 
 [VSCode-Mac](https://code.visualstudio.com/shortcuts/keyboard-shortcuts-macos.pdf)  
 
-*快速定位*：
-1. [General (通用)](#1-general-通用)
-2. [Basic editing (基本编辑)](#2-basic-editing-基本编辑)
-3. [Navigation (导航)](#3-navigation-导航)
-4. [Search and replace (搜索和替换)](#4-search-and-replace-搜索和替换)
-5. [Multi-cursor and selection (多光标和选择)](#5-multi-cursor-and-selection-多光标和选择)
-6. [Rich languages editing (富语言编辑)](#6-rich-languages-editing-富语言编辑)
-7. [Editor management (编辑器管理)](#7-editor-management-编辑器管理)
-8. [File management (文件管理)](#8-file-management-文件管理)
-9. [Display (显示)](#9-display-显示)
-10. [Debug (调试)](#10-debug-调试)
-11. [Integrated terminal (集成终端)](#11-integrated-terminal-集成终端)
+
+<details>
+  <summary>[点击展开] 目录导航</summary>
+
+  * [1. General (通用)](#1-general-通用)
+  * [2.Basic editing (基本编辑)](#2-basic-editing-基本编辑)
+  * [3. Navigation (导航)](#3-navigation-导航)
+  * [4. Search and replace (搜索和替换)](#4-search-and-replace-搜索和替换)
+  * [5. Multi-cursor and selection (多光标和选择)](#5-multi-cursor-and-selection-多光标和选择)
+  * [6. Rich languages editing (富语言编辑)](#6-rich-languages-editing-富语言编辑)
+  * [7. Editor management (编辑器管理)](#7-editor-management-编辑器管理)
+  * [8. File management (文件管理)](#8-file-management-文件管理)
+  * [9. Display (显示)](#9-display-显示)
+  *  [10. Debug (调试)](#10-debug-调试)
+  *  [11. Integrated terminal (集成终端)](#11-integrated-terminal-集成终端)
+</details>
 
 
 ### 1. General (通用)
@@ -199,7 +203,7 @@
 
 
 
-[ ↑ 官方自带-vscode快捷键 ↑ ](#官方自带---vs-code快捷键)  
+[🚀 官方自带-vscode快捷键](#官方自带---vs-code快捷键)  
 
 ---
 
