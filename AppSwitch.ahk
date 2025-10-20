@@ -46,6 +46,8 @@ CapsLock::Ctrl
 
 ; Alt + X : 最小化当前活动窗口，并保存其句柄
 !x:: {
+    global lastMinimizedHwnd  ; 声明使用全局变量
+
     ; 确保不是桌面或任务栏等特殊窗口
     local currentActiveHwnd := WinGetID("A") ;
     if (currentActiveHwnd != 0 && WinGetTitle(currentActiveHwnd) != "Program Manager" && WinGetClass(currentActiveHwnd) !=
@@ -60,6 +62,8 @@ CapsLock::Ctrl
 
 ; Alt + Shift + X : 恢复上次最小化的窗口
 !+x:: {
+    global lastMinimizedHwnd  ; 声明使用全局变量
+
     ; 检查是否有上次最小化的窗口句柄，并且该窗口仍然存在
     if (lastMinimizedHwnd && WinExist(lastMinimizedHwnd)) {
         ; 检查该窗口当前是否处于最小化状态 (WinMin 返回 1 如果最小化，否则返回 0)
@@ -92,57 +96,32 @@ MinimizeWindow(winId) {
 }
 
 ; 音量控制 & 媒体控制
-!WheelUp:: AdjustVolume(2)     ; Alt+滚轮上：增大音量
-!WheelDown:: AdjustVolume(-2)  ; Alt+滚轮下：减小音量
-!XButton1::Media_Play_Pause    ; Alt+鼠标侧键：播放/暂停 (XButton1后侧键，XButton2前侧键)
+!WheelUp:: AdjustVolume(2)      ; Alt+滚轮向上：增大音量
+!WheelDown:: AdjustVolume(-2)   ; Alt+滚轮向下：减小音量
+!MButton:: ToggleMute()         ; Alt+鼠标中键：静音/恢复
+!XButton1:: Media_Play_Pause()  ; Alt+鼠标侧键：播放/暂停 (XButton1后侧键，XButton2前侧键)
 
 ; 音量调节函数
 AdjustVolume(amount) {
+    ; amount: 需要调整的音量值，正数增加，负数减少，2的整数倍
     if (amount > 0) {
-        ; 对于正数，我们希望传递像 "+2" 这样的字符串
-        SoundSetVolume "+" . amount
+        loop amount // 2 {  ; 循环执行
+            Send "{Volume_Up}" ;默认音量+2
+        }
     } else if (amount < 0) {
-        ; 对于负数，我们希望传递像 "-2" 这样的字符串
-        ; "" . amount 会将数字 amount（例如 -2）转换成字符串 "-2"
-        SoundSetVolume "" . amount
+        loop (-amount) // 2 {
+            Send "{Volume_Down}" ;默认音量-2
+        }
     }
-    ; 如果 amount 是 0，此函数将不执行任何操作
+}
 
-    ; 获取当前音量
-    currentVolume := SoundGetVolume()
-    ; 四舍五入音量值，使其更易读
-    displayVolume := Round(currentVolume)
-
-    ; 创建GUI并设置样式（每次调整都会新建）
-    myGui := Gui("+AlwaysOnTop -Caption +ToolWindow")
-    myGui.BackColor := "333333"  ; 背景色
-    myGui.Margin := 2            ; 边框厚度
-
-    myGui.SetFont("s20 Bold c3A8BFF", "Noto Sans SC")  ; 字体大小20，蓝色
-
-    ; 添加文本控件
-    myGui.Add("Text", "w150 h40 Center", "音量: " displayVolume "%")
-
-    ; 添加进度条控件
-    progressOpts := "w150 h10 c3183e0 Background424242 -Theme Range0-100"
-    progressCtrl := myGui.Add("Progress", progressOpts, displayVolume)
-
-    myGui.Show("AutoSize Center")
-
-    ; 定义圆角半径
-    r := 10  ; 圆角半径（建议8-15之间）
-    WinGetClientPos(, , &w, &h, myGui.Hwnd)
-    region := DllCall("CreateRoundRectRgn", "int", 0, "int", 0, "int", w, "int", h, "int", r, "int", r)
-    DllCall("SetWindowRgn", "ptr", myGui.Hwnd, "ptr", region, "int", 1)
-
-    ; 设置计时器销毁GUI（替换原有清除ToolTip）
-    SetTimer () => myGui.Destroy(), -1000
-
+; 切换静音
+ToggleMute() {
+    ; 切换系统静音（发送媒体键）
+    Send "{Volume_Mute}"
 }
 
 ; 媒体控制
 Media_Play_Pause() {
     Send "{Media_Play_Pause}"
 }
-
-
